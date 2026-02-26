@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | CodSoft Task 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <!-- Logo / Brand -->
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <span>MyApp</span>
+            </div>
+
+            <!-- Progress bar shows which step the user is on -->
+            <div class="progress-bar">
+                <div class="step-dot active"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+
+            <header>
+                <h1 id="form-title">Create Account</h1>
+                <p id="form-subtitle">Join us today — it only takes a minute.</p>
+            </header>
+
+            <form id="signup-form">
+
+                <!-- Step 1: Name + Email -->
+                <div class="form-step active" id="step1">
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com">
+                    </div>
+                    <button type="button" class="btn-primary" onclick="nextStep(2)">Continue →</button>
+                </div>
+
+                <!-- Step 2: Password -->
+                <div class="form-step" id="step2">
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Create a password">
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" placeholder="Repeat your password">
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn-back" onclick="nextStep(1)">← Back</button>
+                        <button type="button" class="btn-primary" onclick="nextStep(3)">Continue →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Interests -->
+                <div class="form-step" id="step3">
+                    <div class="input-group">
+                        <label>Pick Your Interests</label>
+                        <p class="hint-text">Select topics you'd like to follow.</p>
+                        <div class="chips">
+                            <span class="chip" onclick="toggleChip(this)">Design</span>
+                            <span class="chip" onclick="toggleChip(this)">Development</span>
+                            <span class="chip" onclick="toggleChip(this)">Marketing</span>
+                            <span class="chip" onclick="toggleChip(this)">Business</span>
+                            <span class="chip" onclick="toggleChip(this)">Photography</span>
+                            <span class="chip" onclick="toggleChip(this)">Music</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn-back" onclick="nextStep(2)">← Back</button>
+                        <button type="submit" class="btn-primary">Finish</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <p class="bottom-link">
+                Already have an account? <a href="index.html">Sign In</a>
+            </p>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

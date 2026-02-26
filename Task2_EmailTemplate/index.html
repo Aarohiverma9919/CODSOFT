@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template | CodSoft Task 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111118;
+            font-family: 'Outfit', Arial, sans-serif;
+            padding: 30px 15px;
+        }
+
+        .email-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ---- Top header section ---- */
+        .email-header {
+            background: #6366f1;
+            background-image: linear-gradient(to bottom right, #6366f1, #8b5cf6);
+            border-radius: 16px 16px 0 0;
+            padding: 40px 40px 50px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .logo-text span {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 4px 12px;
+        }
+
+        .email-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .email-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+
+        /* ---- Main content area ---- */
+        .email-body {
+            background: #1a1a27;
+            padding: 40px;
+        }
+
+        .greeting-text {
+            font-size: 15px;
+            color: #e2e8f0;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* Big call-to-action button */
+        .cta-area {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Three feature boxes */
+        .feature-row {
+            display: flex;
+            gap: 14px;
+            margin: 30px 0;
+        }
+
+        .feature-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 18px 14px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .feature-box h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 5px;
+        }
+
+        .feature-box p {
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Divider line */
+        .divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.07);
+            margin: 30px 0;
+        }
+
+        /* Promo / discount section */
+        .promo-section {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .promo-badge {
+            background: #6366f1;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 12px 16px;
+            white-space: nowrap;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .promo-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 4px;
+        }
+
+        .promo-info p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* ---- Footer ---- */
+        .email-footer {
+            background: #13131e;
+            border-radius: 0 0 16px 16px;
+            padding: 28px 40px;
+            text-align: center;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .footer-note a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        /* Stack vertically on small screens */
+        @media (max-width: 480px) {
+
+            .email-header,
+            .email-body {
+                padding: 25px 20px;
+            }
+
+            .email-footer {
+                padding: 22px 20px;
+            }
+
+            .feature-row {
+                flex-direction: column;
+            }
+
+            .promo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+
+        <!-- Header -->
+        <div class="email-header">
+            <div class="logo-text"><span>✦ Nexus</span></div>
+            <h2>Your Journey Starts Here 🚀</h2>
+            <p>We're thrilled to have you join the community.</p>
+        </div>
+
+        <!-- Body -->
+        <div class="email-body">
+            <p class="greeting-text">
+                Hey <strong style="color: #a5b4fc;">Alex</strong>,<br><br>
+                Welcome aboard! Your account is all set. We built <strong style="color: #e2e8f0;">Nexus</strong> to help
+                you manage tasks, collaborate with your team, and achieve more — all in one place.
+            </p>
+
+            <!-- CTA Button -->
+            <div class="cta-area">
+                <a href="#" class="cta-button">Get Started Now →</a>
+            </div>
+
+            <!-- Three Feature Highlights -->
+            <div class="feature-row">
+                <div class="feature-box">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Lightning Fast</h4>
+                    <p>Optimized for speed on all devices.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Secure</h4>
+                    <p>End-to-end encryption for your data.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🤝</div>
+                    <h4>Collaborative</h4>
+                    <p>Work together in real time.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Promo Banner -->
+            <div class="promo-section">
+                <div class="promo-badge">30%<br>OFF</div>
+                <div class="promo-info">
+                    <h4>Upgrade to Pro — Limited Time</h4>
+                    <p>Unlock all features and priority support. Offer expires in 48 hours.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <div class="social-row">
+                <a href="#" class="social-icon">Tw</a>
+                <a href="#" class="social-icon">Ln</a>
+                <a href="#" class="social-icon">Ig</a>
+                <a href="#" class="social-icon">Gh</a>
+            </div>
+            <p class="footer-note">
+                You received this because you signed up at nexus.app<br>
+                <a href="#">Unsubscribe</a> · <a href="#">Privacy Policy</a> · <a href="#">Contact Us</a><br><br>
+                © 2026 Nexus Inc. All rights reserved.
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

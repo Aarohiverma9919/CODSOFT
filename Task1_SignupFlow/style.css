@@ -1,0 +1,379 @@
+/* 
+   Task 1 - Signup Flow
+   Pages: Sign In (index.html) → Sign Up (signup.html) → Welcome (welcome.html)
+   Dark blue/indigo theme
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    background-image: linear-gradient(to bottom right, #0f172a, #1e1b4b);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* ==================
+   THE CARD
+   ================== */
+.card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 38px 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================
+   BRAND / LOGO
+   ================== */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #a5b4fc;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #6366f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* ==================
+   HEADING AREA
+   ================== */
+header {
+    margin-bottom: 26px;
+}
+
+header h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ==================
+   PROGRESS BAR
+   ================== */
+.progress-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.step-dot {
+    flex: 1;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.step-dot.active {
+    background: #6366f1;
+}
+
+/* ==================
+   FORM STEPS
+   ================== */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* ==================
+   INPUT FIELDS
+   ================== */
+.input-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 7px;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 13px 15px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+.hint-text {
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+/* Forgot password link sits below the input */
+.forgot-link {
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: #6366f1;
+    text-decoration: none;
+    margin-top: 6px;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* ==================
+   BUTTONS
+   ================== */
+.btn-primary {
+    width: 100%;
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.2s;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #4f46e5;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* In a button group the primary should fill remaining space */
+.btn-group .btn-primary {
+    flex: 1;
+}
+
+.btn-back {
+    flex: 0.45;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #94a3b8;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.2s;
+}
+
+.btn-back:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==================
+   DIVIDER ("or")
+   ================== */
+.divider {
+    text-align: center;
+    margin: 22px 0;
+    position: relative;
+    color: #475569;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 38%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* ==================
+   SOCIAL LOGIN ROW
+   ================== */
+.social-row {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 12px;
+    color: #f1f5f9;
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ==================
+   BOTTOM LINK ("Already have an account?")
+   ================== */
+.bottom-link {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.bottom-link a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.bottom-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==================
+   INTEREST CHIPS
+   ================== */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.chip {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    font-family: 'Outfit', sans-serif;
+    transition: background 0.2s;
+}
+
+.chip.selected {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: white;
+}
+
+/* ==================
+   WELCOME PAGE
+   ================== */
+.welcome-card {
+    text-align: center;
+}
+
+.welcome-icon {
+    font-size: 62px;
+    margin-bottom: 20px;
+}
+
+.welcome-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.welcome-sub {
+    font-size: 14px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.welcome-features {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.feature-item {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 16px 10px;
+}
+
+.feature-item span {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.feature-item p {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.go-btn {
+    margin-top: 0;
+}

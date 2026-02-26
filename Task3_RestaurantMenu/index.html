@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Dining | Restaurant Menu</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- HERO HEADER -->
+    <header class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <p class="hero-tagline">✦ Est. 2018</p>
+                <h1>Ember Dining</h1>
+                <p class="hero-sub">Fine cuisine crafted with passion</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- CATEGORY TABS -->
+        <nav class="category-nav">
+            <button class="cat-btn active" data-cat="all">All</button>
+            <button class="cat-btn" data-cat="starters">🥗 Starters</button>
+            <button class="cat-btn" data-cat="mains">🍽️ Mains</button>
+            <button class="cat-btn" data-cat="desserts">🍮 Desserts</button>
+            <button class="cat-btn" data-cat="drinks">🍹 Beverages</button>
+        </nav>
+
+        <!-- SEARCH BAR -->
+        <div class="search-wrap">
+            <input type="text" id="search" placeholder="🔍  Search dishes..." oninput="filterMenu()">
+        </div>
+
+        <!-- MENU GRID -->
+        <section class="menu-grid" id="menu-grid">
+            <!-- items injected by JS -->
+        </section>
+    </main>
+
+    <!-- ITEM MODAL -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div id="modal-img"></div>
+            <div class="modal-body">
+                <h3 id="modal-name"></h3>
+                <p id="modal-desc"></p>
+                <div class="modal-footer">
+                    <span id="modal-price"></span>
+                    <button class="add-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
